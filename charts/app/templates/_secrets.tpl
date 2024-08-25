@@ -1,4 +1,31 @@
 {{/* 
+Determine the Pod annotations used in the controller 
+*/}}
+{{- define "env.fromSecret" }}
+{{ $namespace := include "common.namespace" . }}
+{{ $app := include "application.fullname" . }}
+{{ if .Values.envFromSecret.enabled }}
+{{ if .Values.envFromSecret.secretNames }}
+{{- range $key := .Values.envFromSecret.secretNames }}
+- extract:
+    key: /{{ $namespace }}/{{ $app }}/{{ $key }}
+{{ end }}
+{{ end }}
+{{ end }}
+{{- end }}
+
+{{/* 
+Determine the Pod annotations used in the controller 
+*/}}
+{{- define "env.secret" }}
+{{ $app := include "application.fullname" . }}
+{{ if .Values.envFromSecret.enabled }}
+- secretRef:
+    name: {{ $app }}
+{{ end }}
+{{- end }}
+
+{{/* 
 secret environment variables from a file
 */}}
 {{- define "secrets.fromFile" }}
