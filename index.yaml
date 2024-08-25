@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  app:
+  - apiVersion: v2
+    appVersion: 1.16.1
+    created: "2024-08-25T18:54:46.413027338Z"
+    description: A Helm chart for k8s application.
+    digest: 228f182f83f833d9da719216206d3cd738eadc003103752e2c0cecda12edf8fe
+    name: app
+    type: application
+    urls:
+    - https://github.com/sandeshgrangdan/charts/releases/download/app-0.2.1/app-0.2.1.tgz
+    version: 0.2.1
+generated: "2024-08-25T18:54:46.413034541Z"
