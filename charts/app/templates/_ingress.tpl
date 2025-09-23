@@ -19,5 +19,8 @@ alb.ingress.kubernetes.io/unhealthy-threshold-count: '5'
 alb.ingress.kubernetes.io/load-balancer-attributes: routing.http2.enabled=true,routing.http.drop_invalid_header_fields.enabled=true,deletion_protection.enabled=true,idle_timeout.timeout_seconds=120
 # alb.ingress.kubernetes.io/ip-address-type: dualstack
 alb.ingress.kubernetes.io/certificate-arn: {{ $arn }}
+{{- with .Values.ingress.annotations }}
+{{- toYaml . | nindent 0 }}
+{{- end }}
 {{- end }}
 {{- end }}

@@ -3,7 +3,7 @@ Determine the Pod annotations used in the controller
 */}}
 {{- define "env.fromSecret" }}
 {{ $namespace := include "common.namespace" . }}
-{{ $app := include "application.fullname" . }}
+{{ $app := include "app.fullname" . }}
 {{ if .Values.envFromSecret.enabled }}
 {{ if .Values.envFromSecret.secretNames }}
 {{- range $key := .Values.envFromSecret.secretNames }}
@@ -18,7 +18,7 @@ Determine the Pod annotations used in the controller
 Determine the Pod annotations used in the controller 
 */}}
 {{- define "env.secret" }}
-{{ $app := include "application.fullname" . }}
+{{ $app := include "app.fullname" . }}
 {{ if .Values.envFromSecret.enabled }}
 - secretRef:
     name: {{ $app }}

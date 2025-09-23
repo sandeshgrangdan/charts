@@ -116,6 +116,15 @@ secretsToFile:
   secretNames:
     - appsettings.json
 
+envFromSecret:
+  enabled: false
+  secretStore:
+    name: secretstore
+    kind: SecretStore
+    refreshInterval: 10s
+  secretNames:
+    - env
+
 podDisruptionBudget:
   enabled: false
   # minAvailable: 1
