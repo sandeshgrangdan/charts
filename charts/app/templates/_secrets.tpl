@@ -3,15 +3,21 @@ Determine the Pod annotations used in the controller
 */}}
 {{- define "env.fromSecret" }}
 {{ $namespace := include "common.namespace" . }}
+
 {{ $app := include "app.fullname" . }}
+{{- if .Values.envFromSecret.name }}
+  {{- $app = .Values.envFromSecret.name }}
+{{- end }}
+
 {{ if .Values.envFromSecret.enabled }}
-{{ if .Values.envFromSecret.secretNames }}
-{{- range $key := .Values.envFromSecret.secretNames }}
+  {{ if .Values.envFromSecret.secretNames }}
+    {{- range $key := .Values.envFromSecret.secretNames }}
 - extract:
     key: /{{ $namespace }}/{{ $app }}/{{ $key }}
+    {{ end }}
+  {{ end }}
 {{ end }}
-{{ end }}
-{{ end }}
+
 {{- end }}
 
 {{/* 
@@ -30,7 +36,12 @@ secret environment variables from a file
 */}}
 {{- define "secrets.fromFile" }}
 {{ $namespace := include "common.namespace" . }}
+
 {{ $app := include "app.fullname" . }}
+{{- if .Values.envFromSecret.name }}
+  {{- $app = .Values.envFromSecret.name }}
+{{- end }}
+
 {{ if .Values.secretsToFile.enabled }}
 {{ if .Values.secretsToFile.secretNames }}
 {{- range $key := .Values.secretsToFile.secretNames }}
