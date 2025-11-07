@@ -2,6 +2,16 @@ apiVersion: v1
 entries:
   app:
   - apiVersion: v2
+    appVersion: 1.16.4
+    created: "2025-11-07T09:10:41.676363737Z"
+    description: A Helm chart for k8s application.
+    digest: cb622efe4ab645dd7cf833253b5d0aaac6ba5ab4101469ed01cbeb1870c33349
+    name: app
+    type: application
+    urls:
+    - https://github.com/sandeshgrangdan/charts/releases/download/app-0.2.4/app-0.2.4.tgz
+    version: 0.2.4
+  - apiVersion: v2
     appVersion: 1.16.3
     created: "2025-10-30T08:54:51.929914379Z"
     description: A Helm chart for k8s application.
@@ -31,4 +41,4 @@ entries:
     urls:
     - https://github.com/sandeshgrangdan/charts/releases/download/app-0.2.1/app-0.2.1.tgz
     version: 0.2.1
-generated: "2025-10-30T08:54:51.929924695Z"
+generated: "2025-11-07T09:10:41.676379427Z"
